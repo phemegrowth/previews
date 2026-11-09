@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dion Villa · Private spa villa in Zakynthos</title>
+<meta name="description" content="A private villa for two to four guests above the Ionian Sea in Volimes, Zakynthos. Private pool, jacuzzi, sea views. Book direct for the best rate.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="demo-bar">Draft preview · the booking system on this page is a demo, no payment is taken</div>
+
+<header class="top" id="top">
+  <a href="#top" class="mark" aria-label="Dion Villa home">
+    <span class="mark-name">Dion</span><span class="mark-sub">Villa · Zakynthos</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href="#villa">The villa</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#location">Location</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <a href="#book" class="btn btn-small">Book direct</a>
+</header>
+
+<section class="hero">
+  <img src="assets/img/hero-pool.jpg" alt="Dion Villa's private pool lit at night, with the hills of Zakynthos behind" class="hero-img">
+  <div class="hero-shade"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">Volimes · Zakynthos · Greece</p>
+    <h1>A private spa villa<br><em>above the Ionian Sea</em></h1>
+    <p class="hero-lead">One bedroom, two bathrooms, a private pool and a jacuzzi with a view. Made for two, with room for four.</p>
+    <a href="#book" class="btn">Check availability</a>
+  </div>
+  <form class="quick" id="quick" aria-label="Quick availability check">
+    <label>Check-in<input type="text" id="q-in" placeholder="Add date" readonly></label>
+    <label>Check-out<input type="text" id="q-out" placeholder="Add date" readonly></label>
+    <label>Guests
+      <select id="q-guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+    </label>
+    <button type="submit" class="btn">Search</button>
+  </form>
+</section>
+
+<section class="facts" aria-label="At a glance">
+  <div><strong>4</strong><span>guests</span></div>
+  <div><strong>1</strong><span>bedroom</span></div>
+  <div><strong>2</strong><span>bathrooms</span></div>
+  <div><strong>5.0</strong><span>on Google</span></div>
+</section>
+
+<section class="intro" id="villa">
+  <div class="intro-text">
+    <p class="eyebrow">The villa</p>
+    <h2>Quiet, bright, <em>and all yours</em></h2>
+    <p>Dion Villa sits in the hills of Volimes, in the north of Zakynthos, close to Navagio and the island's most famous coastline. Stone walls outside, white marble inside, and big windows facing the sea.</p>
+    <p>There is one king bedroom (it can become two singles), a double sofa bed in the living room, two bathrooms and a full kitchen. You have the pool, the jacuzzi and the terrace to yourselves.</p>
+    <p class="host">Your host, Dionusia, lives nearby and helps with airport transfers, car hire and day trips.</p>
+  </div>
+  <figure class="intro-img">
+    <img src="assets/img/lounge-view.jpg" alt="Living room with a blue velvet chaise and a wide sea view" loading="lazy">
+  </figure>
+</section>
+
+<section class="features" aria-label="Highlights">
+  <article>
+    <img src="assets/img/terrace-night.jpg" alt="Terrace with loungers, stone walls and evening lights" loading="lazy">
+    <h3>Private pool and terrace</h3>
+    <p>Sun loungers, a shaded pergola and an outdoor dining table, with nobody else around.</p>
+  </article>
+  <article>
+    <img src="assets/img/jacuzzi.jpg" alt="Corner jacuzzi in white marble next to a window" loading="lazy">
+    <h3>Jacuzzi with a view</h3>
+    <p>A marble jacuzzi next to the bedroom, by a window over the olive trees.</p>
+  </article>
+  <article>
+    <img src="assets/img/sunset-window.jpg" alt="Sunset over the sea through floor-to-ceiling windows" loading="lazy">
+    <h3>Sea views, every room</h3>
+    <p>Wide windows on the Ionian. Fireplace for stays of three nights or more.</p>
+  </article>
+</section>
+
+<section class="gallery-wrap" id="gallery">
+  <div class="section-head">
+    <p class="eyebrow">Gallery</p>
+    <h2>Take a look <em>inside</em></h2>
+  </div>
+  <div class="gallery" id="gallery-grid">
+    <button data-src="assets/img/exterior-day.jpg" class="g-wide"><img src="assets/img/exterior-day.jpg" alt="The villa by day, stone and white walls with sea behind" loading="lazy"></button>
+    <button data-src="assets/img/bed-jacuzzi.jpg"><img src="assets/img/bed-jacuzzi.jpg" alt="Bedroom with the jacuzzi beside the bed" loading="lazy"></button>
+    <button data-src="assets/img/jacuzzi-candles.jpg"><img src="assets/img/jacuzzi-candles.jpg" alt="Jacuzzi with floating candles" loading="lazy"></button>
+    <button data-src="assets/img/living.jpg"><img src="assets/img/living.jpg" alt="Living area with white sofas and stone wall" loading="lazy"></button>
+    <button data-src="assets/img/bed-tray.jpg"><img src="assets/img/bed-tray.jpg" alt="King bed with breakfast tray" loading="lazy"></button>
+    <button data-src="assets/img/terrace-lounge.jpg" class="g-wide"><img src="assets/img/terrace-lounge.jpg" alt="Covered terrace at night with lounge and pool" loading="lazy"></button>
+    <button data-src="assets/img/dining.jpg"><img src="assets/img/dining.jpg" alt="Round marble dining table with blue velvet chairs" loading="lazy"></button>
+    <button data-src="assets/img/kitchen.jpg"><img src="assets/img/kitchen.jpg" alt="Fully equipped white kitchen" loading="lazy"></button>
+    <button data-src="assets/img/bathroom.jpg"><img src="assets/img/bathroom.jpg" alt="Marble bathroom with freestanding tub" loading="lazy"></button>
+    <button data-src="assets/img/pergola.jpg"><img src="assets/img/pergola.jpg" alt="White pergola against blue sky" loading="lazy"></button>
+    <button data-src="assets/img/sofa-bed.jpg"><img src="assets/img/sofa-bed.jpg" alt="Lounge with double sofa bed and TV" loading="lazy"></button>
+    <button data-src="assets/img/lane.jpg"><img src="assets/img/lane.jpg" alt="Stone walls and olive trees on the lane to the villa" loading="lazy"></button>
+  </div>
+</section>
+
+<section class="amenities">
+  <div class="section-head">
+    <p class="eyebrow">What's included</p>
+    <h2>Everything for <em>a slow week</em></h2>
+  </div>
+  <ul class="amen-list">
+    <li>Private pool</li><li>Private jacuzzi</li><li>Fireplace (3+ nights)</li><li>Sea views</li>
+    <li>King bed or two singles</li><li>Double sofa bed</li><li>Two bathrooms</li><li>Air conditioning</li>
+    <li>Full kitchen and dishwasher</li><li>Tassimo coffee machine</li><li>Washing machine</li><li>Smart TV and music</li>
+    <li>Free WiFi</li><li>Free parking</li><li>Linen, towels, toiletries</li><li>Cot and high chair on request</li>
+    <li>Pets welcome</li><li>Airport transfers on request</li>
+  </ul>
+</section>
+
+<section class="book" id="book">
+  <div class="section-head">
+    <p class="eyebrow">Book direct</p>
+    <h2>Choose your dates</h2>
+    <p class="muted">Booking here costs less than on the big platforms, and you deal with Dionusia directly.</p>
+  </div>
+
+  <div class="book-grid">
+    <div class="cal-card">
+      <div class="cal-nav">
+        <button type="button" id="cal-prev" aria-label="Previous month">‹</button>
+        <span id="cal-title"></span>
+        <button type="button" id="cal-next" aria-label="Next month">›</button>
+      </div>
+      <div class="cal-months" id="cal-months"></div>
+      <div class="cal-legend">
+        <span><i class="lg lg-free"></i>Available</span>
+        <span><i class="lg lg-booked"></i>Booked</span>
+        <span><i class="lg lg-sel"></i>Your stay</span>
+      </div>
+    </div>
+
+    <aside class="sum-card" aria-live="polite">
+      <p class="price-line"><strong>£550</strong> / night</p>
+      <div class="sum-dates">
+        <div><span>Check-in</span><b id="s-in">Select</b></div>
+        <div><span>Check-out</span><b id="s-out">Select</b></div>
+      </div>
+      <label class="sum-guests">Guests
+        <select id="s-guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+      </label>
+      <label class="sum-pet"><input type="checkbox" id="s-pet"> Bringing a pet</label>
+      <div class="sum-lines" id="sum-lines"><p class="muted">Pick your check-in and check-out dates on the calendar.</p></div>
+      <button type="button" class="btn btn-block" id="reserve" disabled>Reserve</button>
+      <p class="tiny">Minimum stay 2 nights. Check-in from 15:00, check-out by 10:00 or 11:00.</p>
+    </aside>
+  </div>
+
+  <p class="sync-note"><b>How it works on the live site:</b> this calendar will be connected to Booking.com and TravelNest. When a guest books anywhere, those dates close here too, within minutes. Payment goes straight to the villa through Stripe.</p>
+</section>
+
+<section class="location" id="location">
+  <div class="loc-text">
+    <p class="eyebrow">Location</p>
+    <h2>North Zakynthos, <em>near Navagio</em></h2>
+    <p>The villa is in Agios Nikolaos, Volimes, the quiet green north of the island. Navagio (Shipwreck Beach), the Blue Caves and the boats from Agios Nikolaos port are all close by.</p>
+    <ul class="dist">
+      <li><span>Kremidi Beach</span><b>about 19 min walk</b></li>
+      <li><span>Zakynthos Airport</span><b>27 km</b></li>
+      <li><span>Address</span><b>Ag. Nikolaos, Ano Volimes 290 91</b></li>
+    </ul>
+    <p class="muted">A car is a good idea. Dionusia can arrange car hire and the airport transfer for you.</p>
+  </div>
+  <div class="map">
+    <iframe title="Map showing Dion Villa in Volimes, Zakynthos" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=37.8966907,20.7080199&z=12&output=embed"></iframe>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <p class="eyebrow">Guest reviews</p>
+    <h2><span class="stars" aria-hidden="true">★★★★★</span> 5.0 <em>on Google</em></h2>
+  </div>
+  <div class="rev-grid">
+    <blockquote>
+      <p>"A really nice villa for two people. The decor and layout show a lot of thought and imagination. Everything you would expect from 5 star accommodation."</p>
+      <cite>Steve · Google</cite>
+    </blockquote>
+    <blockquote>
+      <p>"A beautiful house in the mountain, with pool, barbecue and everything you need. I highly recommend this house if you want complete peace and security."</p>
+      <cite>Ionut · Google</cite>
+    </blockquote>
+    <blockquote>
+      <p>"Modern, bright, spotlessly clean with every possible amenity."</p>
+      <cite>William · verified guest</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="rules">
+  <div class="rule"><h3>Check-in</h3><p>From 15:00. Private check-in with Dionusia.</p></div>
+  <div class="rule"><h3>Check-out</h3><p>By 10:00 or 11:00, depending on the next booking.</p></div>
+  <div class="rule"><h3>Pets and children</h3><p>Small and medium pets welcome. Children welcome, cot on request.</p></div>
+</section>
+
+<footer class="foot">
+  <div class="foot-mark"><span class="mark-name">Dion</span><span class="mark-sub">Villa · Zakynthos</span></div>
+  <div class="foot-contact">
+    <a href="https://wa.me/306972294250">WhatsApp +30 697 229 4250</a>
+    <span>Ag. Nikolaos, Ano Volimes 290 91, Zakynthos, Greece</span>
+  </div>
+  <p class="foot-small">Draft website by Pheme Growth for Dion Villa. Not live.</p>
+</footer>
+
+<a href="https://wa.me/306972294250" class="wa" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" aria-label="Close">×</button>
+  <button class="lb-prev" aria-label="Previous photo">‹</button>
+  <img alt="">
+  <button class="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<!-- Booking demo checkout -->
+<div class="modal" id="checkout" hidden role="dialog" aria-modal="true" aria-labelledby="co-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="demo-flag">Demo · no real booking or payment</div>
+    <ol class="steps"><li class="on">Details</li><li>Payment</li><li>Confirmed</li></ol>
+
+    <form class="step" data-step="1" id="co-details">
+      <h3 id="co-title">Your details</h3>
+      <div class="co-summary" data-summary></div>
+      <div class="row2">
+        <label>First name<input required autocomplete="off" value="Anna"></label>
+        <label>Last name<input required autocomplete="off" value="Smith"></label>
+      </div>
+      <label>Email<input type="email" required autocomplete="off" value="anna@example.com"></label>
+      <label>Phone<input autocomplete="off" value="+44 7700 900123"></label>
+      <label>Anything Dionusia should know?<textarea rows="2" placeholder="Arrival time, airport transfer, special occasion…"></textarea></label>
+      <button class="btn btn-block" type="submit">Continue to payment</button>
+    </form>
+
+    <form class="step" data-step="2" id="co-pay" hidden>
+      <h3>Payment</h3>
+      <div class="co-summary" data-summary></div>
+      <div class="pay-box">
+        <label>Card number<input inputmode="numeric" autocomplete="off" value="4242 4242 4242 4242"></label>
+        <div class="row2">
+          <label>Expiry<input autocomplete="off" value="12 / 29"></label>
+          <label>CVC<input autocomplete="off" value="123"></label>
+        </div>
+        <p class="tiny">On the live site this box is Stripe's secure card form. Here it is a mock: nothing is charged and nothing is sent anywhere.</p>
+      </div>
+      <label class="check"><input type="checkbox" required checked> I accept the house rules and cancellation policy</label>
+      <button class="btn btn-block" type="submit" id="pay-btn">Pay</button>
+      <button class="link" type="button" data-back>Back</button>
+    </form>
+
+    <div class="step" data-step="3" hidden>
+      <div class="ok-icon" aria-hidden="true">✓</div>
+      <h3>Booking confirmed</h3>
+      <p>Reference <b id="co-ref"></b></p>
+      <div class="co-summary" data-summary></div>
+      <p class="muted">On the live site the guest gets a confirmation email, Dionusia gets a notification, and these dates close on Booking.com and TravelNest automatically.</p>
+      <button class="btn btn-block" type="button" data-done>Back to the site</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

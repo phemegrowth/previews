@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victoria 28 · Live availability</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css?v=7b">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/":"./vendor/"}}</script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="mark">V28</span>
+    <div><strong>Victoria 28</strong><small>Livadia, Larnaca · Completion April 2029</small></div>
+  </div>
+  <div class="counts" id="counts"></div>
+  <nav class="views">
+    <button class="on" data-view="3d">3D</button>
+    <button data-view="building">Renders</button>
+    <button data-view="list">List</button>
+    <button data-view="gallery">Gallery</button>
+  </nav>
+</header>
+
+<main>
+  <aside class="filters" id="filters">
+    <h3>Find your home</h3>
+    <label>Floor</label>
+    <div class="seg" data-f="floor">
+      <button class="on" data-v="all">All</button><button data-v="0">G</button><button data-v="1">1st</button><button data-v="2">2nd</button>
+    </div>
+    <label>Bedrooms</label>
+    <div class="seg" data-f="beds">
+      <button class="on" data-v="all">All</button><button data-v="0">Studio</button><button data-v="1">1</button><button data-v="2">2</button>
+    </div>
+    <label>Block</label>
+    <div class="seg" data-f="block">
+      <button class="on" data-v="all">Both</button><button data-v="A">A</button><button data-v="B">B</button>
+    </div>
+    <label>Max price <span id="pmaxv"></span></label>
+    <input type="range" id="pmax" min="135000" max="260000" step="5000" value="260000">
+    <label class="chk"><input type="checkbox" id="onlyAvail"> Only available</label>
+    <div class="legend">
+      <span><i class="dot av"></i>Available</span>
+      <span><i class="dot rs"></i>Reserved</span>
+    </div>
+    <p class="hint"><b>Moving around</b><br>Left-drag: turn around<br>Right-drag: slide<br>Scroll: zoom<br>Keys: W A S D move · Q E turn · R F higher/lower · + − zoom · H start<br>The view only moves while you hold the mouse button or a pad button</p>
+  </aside>
+
+  <section class="stage" id="stage">
+    <canvas id="c"></canvas>
+    <div class="loading" id="loading">Loading the building…</div>
+    <div class="tip" id="tip"></div>
+    <div class="mapbox">
+      <canvas id="minimap" width="180" height="240"></canvas>
+      <small id="alt"></small>
+    </div>
+    <div class="pad" aria-label="Move the view">
+      <div class="pad-row"><button data-act="turnL" title="Turn left (Q)">⟲</button><button data-act="fwd" title="Move forward (W / ↑)">▲</button><button data-act="turnR" title="Turn right (E)">⟳</button></div>
+      <div class="pad-row"><button data-act="left" title="Move left (A / ←)">◀</button><button data-act="home" class="home" title="Back to start (H)">⌂</button><button data-act="right" title="Move right (D / →)">▶</button></div>
+      <div class="pad-row"><button data-act="up" title="Look from higher (R)">⤒</button><button data-act="back" title="Move back (S / ↓)">▼</button><button data-act="down" title="Look from lower (F)">⤓</button></div>
+      <div class="pad-row zoom"><button data-act="in" title="Zoom in (+)">＋</button><button data-act="out" title="Zoom out (−)">－</button></div>
+    </div>
+    <div class="camviews">
+      <button data-cam="home">Aerial</button>
+      <button data-cam="street">Street</button>
+      <button data-cam="courtyard">Pool</button>
+      <button data-cam="top">Top</button>
+      <button id="colours" title="Colour flats by availability">Show availability</button>
+    </div>
+    <button class="exit" id="exit" hidden>← Back to building</button>
+    <div class="walkhelp" id="walkhelp">Inside: drag to look around · W A S D or the pad to walk · Esc to leave</div>
+    <div class="rview" id="rview" hidden></div>
+    <div class="list" id="list" hidden></div>
+    <div class="gallery" id="gallery" hidden></div>
+  </section>
+
+  <aside class="panel" id="panel" hidden>
+    <button class="x" id="close" aria-label="Close">×</button>
+    <div id="unit"></div>
+  </aside>
+</main>
+
+<div class="lightbox" id="lb" hidden><img alt=""><button aria-label="Close">×</button></div>
+
+<script src="data.js?v=7"></script>
+<script type="module" src="renders.js?v=7b"></script>
+<script type="module" src="app.js?v=8d"></script>
+</body>
+</html>

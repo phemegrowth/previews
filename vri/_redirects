@@ -1,0 +1,5 @@
+/about-1  /about/  301
+/victroria-27  /projects/victoria-27/  301
+/victoria-23  /projects/victoria-23/  301
+/contact-us  /contact/  301
+/post/*  /blog/:splat/  301
