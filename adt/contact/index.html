@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact · ADT Empire</title>
-<meta name="description" content="The ADT Empire, 32 Kyriakou Matsi, Villa Clara, Limassol. Call +357 96730850, email info@theadtgroup.com or message us on WhatsApp.">
+<meta name="description" content="ADT, 32 Kyriakou Matsi, Villa Clara, Limassol. Call +357 96730850, email info@theadtgroup.com or message us on WhatsApp.">
 <meta property="og:title" content="Contact · ADT Empire">
-<meta property="og:description" content="The ADT Empire, 32 Kyriakou Matsi, Villa Clara, Limassol. Call +357 96730850, email info@theadtgroup.com or message us on WhatsApp.">
+<meta property="og:description" content="ADT, 32 Kyriakou Matsi, Villa Clara, Limassol. Call +357 96730850, email info@theadtgroup.com or message us on WhatsApp.">
 <meta property="og:image" content="../assets/img/limassol-seafront.jpg">
 <link rel="icon" href="../assets/adt-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,19 +26,18 @@
 
 <header class="site-header" id="top">
   <a class="brand" href="../" aria-label="ADT Empire home">
-    <img src="../assets/adt-mark.svg" alt="" width="40" height="35">
+    <img src="../assets/adt-mark-light.svg" alt="" width="40" height="35">
     <span class="brand-text"><span class="brand-name">ADT EMPIRE</span><span class="brand-tag">Advertising Data Technology</span></span>
   </a>
   <nav class="nav" aria-label="Main">
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span class="sr">Menu</span></button>
     <ul id="nav-list">
+      <li><a href="../property-management/">Property management</a></li>
+      <li><a href="../building-management/">Building management</a></li>
       <li><a href="../about/">About us</a></li>
-      <li><a href="../about-you/">About you</a></li>
-      <li><a href="../services/">Our services</a></li>
-      <li><a href="../yonder/">Yonder System</a></li>
       <li><a href="../blog/">Blog</a></li>
       <li><a href="../contact/" aria-current="page">Contact</a></li>
-      <li class="nav-cta"><a class="btn btn-light" href="../services/#consultation">Free consultation</a></li>
+      <li class="nav-cta"><a class="btn btn-light" href="../contact/">Get in touch</a></li>
     </ul>
   </nav>
 </header>
@@ -65,17 +65,17 @@
           <iframe title="Map: 32 Kyriakou Matsi, Limassol" src="https://maps.google.com/maps?q=32%20Kyriakou%20Matsi%2C%20Limassol%204607%2C%20Cyprus&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-
-      <form class="form form-light" name="contact" method="POST" action="../thanks/" data-netlify="true" netlify-honeypot="company">
-        <input type="hidden" name="form-name" value="contact">
+      <form class="form form-light" name="enquiry" method="POST" action="../thanks/" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="enquiry">
         <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <label><span class="lt">Name <span class="req">required</span></span><input name="name" autocomplete="name" required></label>
         <div class="form-row">
-          <label>First name <span class="req">required</span><input name="first_name" autocomplete="given-name" required></label>
-          <label>Last name <span class="req">required</span><input name="last_name" autocomplete="family-name" required></label>
+          <label><span class="lt">Email <span class="req">required</span></span><input type="email" name="email" autocomplete="email" required></label>
+          <label><span class="lt">Phone <span class="req">optional</span></span><input type="tel" name="phone" autocomplete="tel"></label>
         </div>
-        <label>Email <span class="req">required</span><input type="email" name="email" autocomplete="email" required></label>
-        <label>Message<textarea name="message" rows="6"></textarea></label>
-        <button class="btn btn-emerald" type="submit">Send message</button>
+        <label>I'm interested in<select name="service"><option value="property">Property management</option><option value="building">Building management</option><option value="other">Something else</option></select></label>
+        <label>Message<textarea name="message" rows="5"></textarea></label>
+        <button class="btn btn-emerald" type="submit">Send</button>
       </form>
     </div>
   </section>
@@ -84,7 +84,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="../assets/adt-mark.svg" alt="" width="48" height="42">
+      <img src="../assets/adt-mark-light.svg" alt="" width="48" height="42">
       <p class="brand-name">THE ADT EMPIRE</p>
       <p class="brand-tag">Advertising Data Technology</p>
     </div>
@@ -100,7 +100,7 @@
     </div>
     <div>
       <p class="footer-h">Explore</p>
-      <p><a href="../about/">About us</a><br><a href="../services/">Our services</a><br><a href="../yonder/">Yonder System</a><br><a href="../blog/">Blog</a></p>
+      <p><a href="../property-management/">Property management</a><br><a href="../building-management/">Building management</a><br><a href="../about/">About us</a><br><a href="../blog/">Blog</a></p>
     </div>
   </div>
   <div class="wrap footer-base">
@@ -114,5 +114,6 @@
 </a>
 
 <script src="../app.js" defer></script>
+<script>document.querySelectorAll('form[name=enquiry]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();location.href=f.getAttribute('action')}))</script>
 </body>
 </html>

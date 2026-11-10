@@ -74,7 +74,7 @@
   gsap.from('.hero .eyebrow, .hero-lede, .hero-actions, .page-hero .eyebrow, .page-lede, .page-hero .link-back, .post-meta-dark', {
     y: 18, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.08, delay: 0.45,
   });
-  document.querySelectorAll('.why-head h2, .band-title, .trust-head h2, .deeper h2, .cta h2, .post-more h2, .statement, .why-lead, .letter-big, .service h2, .svc h2, .yonder-includes h2, .yonder-fit h2, .chat-intro, .contact-name, .empty-title').forEach(el => {
+  document.querySelectorAll('.why-head h2, .band-title, .trust-head h2, .deeper h2, .cta h2, .post-more h2, .statement, .why-lead, .letter-big, .service h2, .svc h2, .ride-head h2, .start h2, .enquiry-copy h2, .yonder-includes h2, .yonder-fit h2, .chat-intro, .contact-name, .empty-title').forEach(el => {
     riseLines(el, { duration: 1.1, stagger: 0.08, scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
   });
 
@@ -355,6 +355,63 @@
   }
   document.querySelectorAll('.stats div').forEach((d, i) => {
     gsap.to(d, { '--grow': 1, duration: 1.4, ease: 'power3.inOut', delay: i * 0.12, scrollTrigger: { trigger: d, start: 'top 88%', once: true } });
+  });
+
+
+  // ---------- v2: statement lights up word by word ----------
+  document.querySelectorAll('.scrub-text').forEach(t => {
+    const s = split(t, 'words');
+    if (s) gsap.fromTo(s.words, { opacity: 0.14 }, { opacity: 1, stagger: 0.05, ease: 'none', scrollTrigger: { trigger: t, start: 'top 78%', end: 'bottom 45%', scrub: true } });
+  });
+
+  // ---------- v2: the two service panels open up from the middle ----------
+  document.querySelectorAll('.duo-panel').forEach((p, i) => {
+    gsap.fromTo(p, { clipPath: 'inset(18% 12% 18% 12% round 20px)' }, { clipPath: 'inset(0% 0% 0% 0% round 20px)', ease: 'none',
+      scrollTrigger: { trigger: '.duo', start: 'top 95%', end: 'top 25%', scrub: true } });
+    gsap.from(p.querySelector('.duo-text'), { y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: i * 0.12, scrollTrigger: { trigger: '.duo', start: 'top 45%', once: true } });
+  });
+
+  // ---------- v2: reasons, the photo follows the item you are reading ----------
+  const reasons = document.querySelector('.reasons');
+  if (reasons) {
+    const imgs = [...reasons.querySelectorAll('.reasons-media img')];
+    const count = reasons.querySelector('.reasons-count b');
+    const items = [...reasons.querySelectorAll('.reasons-list li')];
+    items.forEach((li, i) => ScrollTrigger.create({ trigger: li, start: 'top 62%', end: 'bottom 38%',
+      onToggle: self => {
+        if (!self.isActive) return;
+        items.forEach((x, k) => x.classList.toggle('on', k === i));
+        imgs.forEach((im, k) => im.classList.toggle('on', k === i));
+        count.textContent = String(i + 1).padStart(2, '0');
+      } }));
+    items[0].classList.add('on');
+  }
+
+  // ---------- v2: supporting services ride sideways on desktop ----------
+  const ride = document.querySelector('.ride');
+  if (ride) gsap.matchMedia().add('(min-width: 981px)', () => {
+    const trackEl = ride.querySelector('.ride-track');
+    const dist = () => Math.max(0, trackEl.scrollWidth - innerWidth);
+    const tw = gsap.to(trackEl, { x: () => -dist(), ease: 'none',
+      scrollTrigger: { trigger: ride, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true } });
+    gsap.from(ride.querySelectorAll('.ride-card'), { y: 80, opacity: 0, stagger: 0.08, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: ride, start: 'top 70%', once: true } });
+    return () => tw.scrollTrigger && tw.scrollTrigger.kill();
+  });
+
+  // ---------- v2: photo parallax (CTA, service pages) ----------
+  document.querySelectorAll('.cta-bg, .page-photo img').forEach(img => {
+    gsap.fromTo(img, { yPercent: -8, scale: 1.12 }, { yPercent: 8, scale: 1.02, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  // ---------- v2: the four first steps light up along a line ----------
+  document.querySelectorAll('.start-track').forEach(tr => {
+    const line = tr.querySelector('.start-line span');
+    const lis = [...tr.querySelectorAll('li')];
+    ScrollTrigger.create({ trigger: tr, start: 'top 75%', end: 'bottom 55%', scrub: true, onUpdate: self => {
+      gsap.set(line, { scaleX: self.progress });
+      lis.forEach((li, k) => li.classList.toggle('on', self.progress >= k / lis.length + 0.02));
+    } });
+    gsap.from(lis, { y: 40, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: tr, start: 'top 80%', once: true } });
   });
 
   // ---------- buttons lean toward the cursor ----------

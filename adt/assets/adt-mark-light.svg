@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1.5 225 195" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+  <!-- Black and white (Nov 2026), light on dark. ADT Empire mark, redrawn from the 500px PNG (23 Oct 2026). Centre x = 112, diagonal slope 0.55 -->
+  <g stroke="#7C7C7C">
+    <path id="mint-l" d="M78.8 72.5V106.6L47.5 123.8"/>
+    <path id="mint-r" d="M145.2 72.5V106.6L176.5 123.8"/>
+    <path id="mint-chev" d="M83 177L112 161L141 177"/>
+  </g>
+  <g stroke="#BEBEBE">
+    <path id="green-l" d="M94.5 44.5V117.3L35 150"/>
+    <path id="green-r" d="M129.5 44.5V117.3L189 150"/>
+    <path id="green-chev" d="M51 177L112 143.5L173 177"/>
+  </g>
+  <g stroke="#FFFFFF">
+    <path id="core" d="M112 17.5V125"/>
+    <path id="core-l" d="M112 125L20 175.6"/>
+    <path id="core-r" d="M112 125L204 175.6"/>
+  </g>
+</svg>

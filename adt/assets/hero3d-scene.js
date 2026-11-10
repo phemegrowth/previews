@@ -68,7 +68,7 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
   renderer.toneMappingExposure = 1.05;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-  const INK = 0x06120e;
+  const INK = 0x120d0a;
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(INK);
   scene.fog = new THREE.FogExp2(INK, 0.11);
@@ -84,9 +84,9 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
   const CY = 97;
   const R = 4.6 * S; // rod radius (stroke 10 in the SVG)
   const toW = ([x, y]) => new THREE.Vector3((x - CX) * S, R, (y - CY) * S);
-  const CORE = 0x00b38a;
-  const GREEN = 0x4fc35d;
-  const MINT = 0x8fd3c4;
+  const CORE = 0xffffff;
+  const GREEN = 0xd9cbbd;
+  const MINT = 0xc25b3a;
   // [points, colour, grow start, grow end]
   const RODS = [
     [[[112, 17.5], [112, 125]], CORE, 0.0, 1.25],
@@ -216,12 +216,12 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
   // ---------- floor: dark glossy stone with a faint data grid ----------
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(60, 60),
-    new THREE.MeshStandardMaterial({ color: 0x030a07, metalness: 0.0, roughness: 0.42, envMapIntensity: 0.05 })
+    new THREE.MeshStandardMaterial({ color: 0x0d0907, metalness: 0.0, roughness: 0.42, envMapIntensity: 0.05 })
   );
   floor.rotation.x = -Math.PI / 2;
   scene.add(floor);
 
-  const grid = new THREE.GridHelper(40, 160, 0x2f7f6a, 0x2f7f6a);
+  const grid = new THREE.GridHelper(40, 160, 0x4a3328, 0x4a3328);
   grid.position.y = 0.001;
   grid.material.transparent = true;
   grid.material.depthWrite = false;
@@ -233,9 +233,9 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
     c.width = c.height = 256;
     const g = c.getContext("2d");
     const grd = g.createRadialGradient(128, 128, 0, 128, 128, 128);
-    grd.addColorStop(0, "rgba(0,179,138,0.32)");
-    grd.addColorStop(0.45, "rgba(0,150,115,0.18)");
-    grd.addColorStop(1, "rgba(0,120,90,0)");
+    grd.addColorStop(0, "rgba(214,120,80,0.28)");
+    grd.addColorStop(0.45, "rgba(194,91,58,0.14)");
+    grd.addColorStop(1, "rgba(255,255,255,0)");
     g.fillStyle = grd;
     g.fillRect(0, 0, 256, 256);
     const tex = new THREE.CanvasTexture(c);
@@ -263,23 +263,23 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
     const g = c.getContext("2d");
     const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
     grd.addColorStop(0, "rgba(255,255,255,1)");
-    grd.addColorStop(0.3, "rgba(200,255,235,0.6)");
-    grd.addColorStop(1, "rgba(200,255,235,0)");
+    grd.addColorStop(0.3, "rgba(255,255,255,0.6)");
+    grd.addColorStop(1, "rgba(255,255,255,0)");
     g.fillStyle = grd;
     g.fillRect(0, 0, 64, 64);
     return new THREE.CanvasTexture(c);
   })();
-  const pMat = new THREE.PointsMaterial({ color: 0xa8f0dc, size: 0.035, map: dotTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.8 });
+  const pMat = new THREE.PointsMaterial({ color: 0xffd2bd, size: 0.035, map: dotTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.8 });
   const points = new THREE.Points(pGeo, pMat);
   scene.add(points);
 
   // ---------- lights: a key that sweeps across the glass ----------
-  const key = new THREE.DirectionalLight(0xf2fff9, 2.2);
+  const key = new THREE.DirectionalLight(0xfff0e2, 2.2);
   scene.add(key);
-  const rim = new THREE.PointLight(0x00c896, 2, 5, 2);
+  const rim = new THREE.PointLight(0xff8a5c, 2, 5, 2);
   rim.position.set(0, 1.4, -2.2);
   scene.add(rim);
-  scene.add(new THREE.HemisphereLight(0xcff5ea, 0x020806, 0.25));
+  scene.add(new THREE.HemisphereLight(0xffe9d8, 0x0d0907, 0.25));
 
   // ---------- post: bloom for the light inside the rods ----------
   const composer = new EffectComposer(renderer);
@@ -362,6 +362,8 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
       -bx * Math.sin(ang) + bz * Math.cos(ang) + my * 0.25
     );
     camera.up.set(0, 1, 0); // the end view keeps a slight tilt, so up never lines up with the view
+    const fit = Math.max(1.12, 1.95 / camera.aspect);
+    camera.position.set(tgtX(t) + (camera.position.x - tgtX(t)) * fit, camera.position.y * fit, tgtZ(t) + (camera.position.z - tgtZ(t)) * fit);
     camera.lookAt(tgtX(t), 0, tgtZ(t));
     const f = smooth(5.8, 7.8, t);
     camera.setViewOffset(W, H, shiftX() * f, shiftY() * f, W, H);

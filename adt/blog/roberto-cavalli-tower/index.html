@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roberto Cavalli Tower · ADT Empire</title>
@@ -25,19 +26,18 @@
 
 <header class="site-header" id="top">
   <a class="brand" href="../../" aria-label="ADT Empire home">
-    <img src="../../assets/adt-mark.svg" alt="" width="40" height="35">
+    <img src="../../assets/adt-mark-light.svg" alt="" width="40" height="35">
     <span class="brand-text"><span class="brand-name">ADT EMPIRE</span><span class="brand-tag">Advertising Data Technology</span></span>
   </a>
   <nav class="nav" aria-label="Main">
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span class="sr">Menu</span></button>
     <ul id="nav-list">
+      <li><a href="../../property-management/">Property management</a></li>
+      <li><a href="../../building-management/">Building management</a></li>
       <li><a href="../../about/">About us</a></li>
-      <li><a href="../../about-you/">About you</a></li>
-      <li><a href="../../services/">Our services</a></li>
-      <li><a href="../../yonder/">Yonder System</a></li>
       <li><a href="../../blog/" aria-current="page">Blog</a></li>
       <li><a href="../../contact/">Contact</a></li>
-      <li class="nav-cta"><a class="btn btn-light" href="../../services/#consultation">Free consultation</a></li>
+      <li class="nav-cta"><a class="btn btn-light" href="../../contact/">Get in touch</a></li>
     </ul>
   </nav>
 </header>
@@ -86,7 +86,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="../../assets/adt-mark.svg" alt="" width="48" height="42">
+      <img src="../../assets/adt-mark-light.svg" alt="" width="48" height="42">
       <p class="brand-name">THE ADT EMPIRE</p>
       <p class="brand-tag">Advertising Data Technology</p>
     </div>
@@ -102,7 +102,7 @@
     </div>
     <div>
       <p class="footer-h">Explore</p>
-      <p><a href="../../about/">About us</a><br><a href="../../services/">Our services</a><br><a href="../../yonder/">Yonder System</a><br><a href="../../blog/">Blog</a></p>
+      <p><a href="../../property-management/">Property management</a><br><a href="../../building-management/">Building management</a><br><a href="../../about/">About us</a><br><a href="../../blog/">Blog</a></p>
     </div>
   </div>
   <div class="wrap footer-base">
@@ -116,5 +116,6 @@
 </a>
 
 <script src="../../app.js" defer></script>
+<script>document.querySelectorAll('form[name=enquiry]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();location.href=f.getAttribute('action')}))</script>
 </body>
 </html>

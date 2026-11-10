@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About us · ADT Empire</title>
-<meta name="description" content="The ADT Empire Ltd was founded in Cyprus in 2023 to represent the investor, not the developer: personalized tax and yield reports, an AI based system and a personal, family oriented service.">
+<meta name="description" content="ADT was founded in Limassol, Cyprus in 2023. Today we manage properties for owners abroad and residential buildings for their owners and committees.">
 <meta property="og:title" content="About us · ADT Empire">
-<meta property="og:description" content="The ADT Empire Ltd was founded in Cyprus in 2023 to represent the investor, not the developer: personalized tax and yield reports, an AI based system and a personal, family oriented service.">
+<meta property="og:description" content="ADT was founded in Limassol, Cyprus in 2023. Today we manage properties for owners abroad and residential buildings for their owners and committees.">
 <meta property="og:image" content="../assets/img/limassol-seafront.jpg">
 <link rel="icon" href="../assets/adt-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,19 +26,18 @@
 
 <header class="site-header" id="top">
   <a class="brand" href="../" aria-label="ADT Empire home">
-    <img src="../assets/adt-mark.svg" alt="" width="40" height="35">
+    <img src="../assets/adt-mark-light.svg" alt="" width="40" height="35">
     <span class="brand-text"><span class="brand-name">ADT EMPIRE</span><span class="brand-tag">Advertising Data Technology</span></span>
   </a>
   <nav class="nav" aria-label="Main">
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span class="sr">Menu</span></button>
     <ul id="nav-list">
+      <li><a href="../property-management/">Property management</a></li>
+      <li><a href="../building-management/">Building management</a></li>
       <li><a href="../about/" aria-current="page">About us</a></li>
-      <li><a href="../about-you/">About you</a></li>
-      <li><a href="../services/">Our services</a></li>
-      <li><a href="../yonder/">Yonder System</a></li>
       <li><a href="../blog/">Blog</a></li>
       <li><a href="../contact/">Contact</a></li>
-      <li class="nav-cta"><a class="btn btn-light" href="../services/#consultation">Free consultation</a></li>
+      <li class="nav-cta"><a class="btn btn-light" href="../contact/">Get in touch</a></li>
     </ul>
   </nav>
 </header>
@@ -45,10 +45,10 @@
 <main id="main">
 <section class="page-hero">
     <div class="hero-glow" aria-hidden="true"></div>
-    <img class="page-hero-mark" src="../assets/adt-mark.svg" alt="" aria-hidden="true">
+    <img class="page-hero-mark" src="../assets/adt-mark-light.svg" alt="" aria-hidden="true">
     <div class="wrap">
       <p class="eyebrow eyebrow-dark">About us</p>
-      <h1>Representing the investor, <em>not the developer</em></h1>
+      <h1>We look after property <em>as if it were ours</em></h1>
     </div>
   </section>
 
@@ -57,12 +57,12 @@
       <div class="fact">
         <span class="fact-label">Founded</span>
         <span class="fact-value">2023</span>
-        <span class="fact-label">Cyprus</span>
+        <span class="fact-label">Limassol</span>
       </div>
       <div class="about-text">
-        <p class="statement">The ADT Empire Ltd was founded in Cyprus 2023 with the purpose of representing the investor and not the developer.</p>
-        <p>In a market where most brokers act on behalf of property owners, we bring the opposite approach: personalized tax and yield reports, based on 20+ personal parameters, combined with an AI based system and advanced tech tools.</p>
-        <p>This gives the most accurate forecast possible and high success potential, with a personal and family oriented service.</p>
+        <p class="statement">ADT started in Limassol in 2023, helping international buyers invest in Cyprus.</p>
+        <p>After the purchase, our clients kept asking the same question: who will look after the property once I am back home? Today we answer it ourselves, with two services: property management for owners who live abroad, and building management for residential buildings.</p>
+        <p>Our team speaks English, Greek and Hebrew, and our building manager is from Cyprus. When a job needs a specialist, we work with lawyers, valuers and tradespeople we know and trust.</p>
         <a class="btn btn-emerald" href="../contact/">Contact us</a>
       </div>
     </div>
@@ -75,8 +75,9 @@
 
   <section class="next">
     <div class="wrap next-inner">
-      <p class="eyebrow">Now, enough about us</p>
-      <a class="next-link" href="../about-you/">Let’s talk about you…</a>
+      <p class="eyebrow">Our services</p>
+      <a class="next-link" href="../property-management/">Property management</a>
+      <a class="next-link" href="../building-management/">Building management</a>
     </div>
   </section>
 </main>
@@ -84,7 +85,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="../assets/adt-mark.svg" alt="" width="48" height="42">
+      <img src="../assets/adt-mark-light.svg" alt="" width="48" height="42">
       <p class="brand-name">THE ADT EMPIRE</p>
       <p class="brand-tag">Advertising Data Technology</p>
     </div>
@@ -100,7 +101,7 @@
     </div>
     <div>
       <p class="footer-h">Explore</p>
-      <p><a href="../about/">About us</a><br><a href="../services/">Our services</a><br><a href="../yonder/">Yonder System</a><br><a href="../blog/">Blog</a></p>
+      <p><a href="../property-management/">Property management</a><br><a href="../building-management/">Building management</a><br><a href="../about/">About us</a><br><a href="../blog/">Blog</a></p>
     </div>
   </div>
   <div class="wrap footer-base">
@@ -114,5 +115,6 @@
 </a>
 
 <script src="../app.js" defer></script>
+<script>document.querySelectorAll('form[name=enquiry]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();location.href=f.getAttribute('action')}))</script>
 </body>
 </html>
