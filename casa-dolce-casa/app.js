@@ -25,22 +25,39 @@
   menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
   addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-  /* reveals */
-  const words = d.querySelectorAll('.display');
+  /* reveals: headings split into words, eyebrows draw a line, icons draw; everything replays when you scroll back up */
+  const wrapWords = el => [...el.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const f = d.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(t => {
+        if (!t) return;
+        if (/^\s+$/.test(t)) f.appendChild(d.createTextNode(' '));
+        else { const w = d.createElement('span'); w.className = 'w'; w.innerHTML = '<span></span>'; w.firstChild.textContent = t; f.appendChild(w); }
+      });
+      n.replaceWith(f);
+    } else if (n.nodeType === 1 && n.tagName !== 'BR' && !n.classList.contains('w')) wrapWords(n);
+  });
+  d.querySelectorAll('.h2').forEach(h => { h.classList.remove('reveal'); h.classList.add('split'); wrapWords(h); });
+  d.querySelectorAll('.eyebrow:not(.reveal)').forEach(e => e.classList.add('reveal'));
+  d.querySelectorAll('.val .ic').forEach(svg => svg.querySelectorAll('path,circle,rect,line,polyline,polygon').forEach(sh => { sh.setAttribute('pathLength', '1'); sh.setAttribute('data-draw', ''); }));
+  const mark = d.querySelector('.ft__mark');
+  const words = d.querySelectorAll('.display,.split');
+  const showWords = el => { el.querySelectorAll('.w>span').forEach((s, i) => s.style.transitionDelay = (i * 60) + 'ms'); el.classList.add('words-in'); };
   if (reduce || !('IntersectionObserver' in window)) {
     d.querySelectorAll('.reveal,.clip').forEach(el => el.classList.add('in'));
-    words.forEach(el => el.classList.add('words-in'));
+    words.forEach(el => el.classList.add('words-in')); mark && mark.classList.add('in');
   } else {
     const io = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      if (el.classList.contains('display')) {
-        el.querySelectorAll('.w>span').forEach((s, i) => s.style.transitionDelay = (i * 70) + 'ms');
-        el.classList.add('words-in');
-      } else el.classList.add('in');
-      io.unobserve(el);
+      const el = e.target, isW = el.classList.contains('display') || el.classList.contains('split');
+      if (e.isIntersecting) { isW ? showWords(el) : el.classList.add('in'); }
+      else if (e.boundingClientRect.top > 0 && !el.closest('.vhero')) {
+        /* left through the bottom (scrolling up): hide it again so it plays next time */
+        if (isW) { el.classList.remove('words-in'); el.querySelectorAll('.w>span').forEach(s => s.style.transitionDelay = '0ms'); }
+        else if (!el.classList.contains('clip')) el.classList.remove('in');
+      }
     }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    d.querySelectorAll('.reveal,.clip,.display').forEach(el => io.observe(el));
+    d.querySelectorAll('.reveal,.clip,.display,.split').forEach(el => io.observe(el));
+    mark && io.observe(mark);
   }
 
   /* count-up */
@@ -81,13 +98,6 @@
       b.addEventListener('mousemove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px,${(e.clientY - r.top - r.height / 2) * .3}px)`; });
       b.addEventListener('mouseleave', () => b.style.transform = '');
     });
-    /* cursor badge over project images */
-    const imgs = d.querySelectorAll('.pcard__img,.prow__img,.lcard__img,.hcard__img');
-    if (imgs.length) {
-      const peek = d.createElement('div'); peek.className = 'peek'; peek.textContent = 'Scopri'; peek.setAttribute('aria-hidden', 'true'); d.body.appendChild(peek);
-      addEventListener('mousemove', e => { peek.style.setProperty('--x', e.clientX + 'px'); peek.style.setProperty('--y', e.clientY + 'px'); }, { passive: true });
-      imgs.forEach(el => { el.addEventListener('mouseenter', () => peek.classList.add('on')); el.addEventListener('mouseleave', () => peek.classList.remove('on')); });
-    }
   }
 
   /* project status filter */
@@ -181,12 +191,18 @@
 
   const vhero = d.querySelector('[data-vhero]'), hpin = d.querySelector('[data-hpin]'), track = d.querySelector('[data-track]'),
     grow = d.querySelector('[data-grow]'), bar = d.querySelector('.progress'), mq = d.querySelector('[data-marquee]'),
-    scards = [...d.querySelectorAll('.scard')];
+    svc = d.querySelector('[data-svc]'), srows = [...d.querySelectorAll('.srow')], spics = [...d.querySelectorAll('.svc__pic')], snum = d.querySelector('[data-svc-n]');
+  let sAct = 0;
   const wide = () => innerWidth >= 860;
   if (hpin && track) {
     const size = () => { if (!wide()) { hpin.style.removeProperty('--hlen'); return; } const extra = track.scrollWidth - innerWidth; hpin.style.setProperty('--hlen', (1 + extra / innerHeight).toFixed(3)); };
     size(); addEventListener('resize', size); addEventListener('load', size);
   }
+  if (svc) srows.forEach((row, i) => row.querySelector('.srow__head').addEventListener('click', () => {
+    if (!wide() || reduce) return;
+    const top = svc.getBoundingClientRect().top + scrollY, len = svc.offsetHeight - innerHeight;
+    scrollTo({ top: top + len * (i + .5) / srows.length, behavior: 'smooth' });
+  }));
   let lastS = scrollY, vel = 0;
   const scene = () => {
     const vh = innerHeight, sy = scrollY, maxS = d.documentElement.scrollHeight - vh;
@@ -209,11 +225,17 @@
       const r = grow.getBoundingClientRect(), p = clamp(-r.top / (grow.offsetHeight - vh));
       grow.style.setProperty('--g', (1 - clamp(p * 1.6)).toFixed(3));
     }
-    if (wide()) scards.forEach((c, i) => {
-      const nx = scards[i + 1]; if (!nx) return;
-      const t = clamp((c.getBoundingClientRect().bottom - nx.getBoundingClientRect().top) / c.offsetHeight);
-      c.style.setProperty('--sc', (1 - t * .06).toFixed(3));
-    });
+    if (svc && wide()) {
+      const r = svc.getBoundingClientRect(), p = clamp(-r.top / (svc.offsetHeight - vh)), n = srows.length;
+      const act = Math.min(n - 1, Math.floor(p * n));
+      srows.forEach((row, i) => row.style.setProperty('--f', clamp(p * n - i).toFixed(3)));
+      if (act !== sAct) {
+        sAct = act;
+        srows.forEach((row, i) => row.classList.toggle('on', i === act));
+        spics.forEach((pic, i) => pic.classList.toggle('on', i <= act));
+        if (snum) { snum.classList.add('flip'); snum.textContent = '0' + (act + 1); void snum.offsetWidth; snum.classList.remove('flip'); }
+      }
+    }
     requestAnimationFrame(scene);
   };
   if (!reduce) requestAnimationFrame(scene);
