@@ -86,7 +86,7 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
   const toW = ([x, y]) => new THREE.Vector3((x - CX) * S, R, (y - CY) * S);
   const CORE = 0xffffff;
   const GREEN = 0xd9cbbd;
-  const MINT = 0xc25b3a;
+  const MINT = 0xb89a6a;
   // [points, colour, grow start, grow end]
   const RODS = [
     [[[112, 17.5], [112, 125]], CORE, 0.0, 1.25],
@@ -234,7 +234,7 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
     const g = c.getContext("2d");
     const grd = g.createRadialGradient(128, 128, 0, 128, 128, 128);
     grd.addColorStop(0, "rgba(214,120,80,0.28)");
-    grd.addColorStop(0.45, "rgba(194,91,58,0.14)");
+    grd.addColorStop(0.45, "rgba(184,154,106,0.14)");
     grd.addColorStop(1, "rgba(255,255,255,0)");
     g.fillStyle = grd;
     g.fillRect(0, 0, 256, 256);

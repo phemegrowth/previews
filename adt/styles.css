@@ -4,10 +4,10 @@
   --forest: #241E1A;       /* raised surfaces on dark */
   --paper: #F6F2EC;        /* main light background, green-tinted */
   --mist: #ECE4D8;         /* alternate light sections */
-  --emerald: #C25B3A;      /* brand core: buttons, numbers, links */
-  --emerald-deep: #A44929; /* hover */
-  --leaf: #D98A6C;         /* brand mid green: mark only, tiny highlights */
-  --mint: #EDB096;         /* brand light: accents on dark */
+  --emerald: #86694A;      /* accent: champagne-bronze, buttons, numbers, links (was terracotta until 13 Nov) */
+  --emerald-deep: #6E5539; /* hover */
+  --leaf: #B89A6A;         /* brand mid green: mark only, tiny highlights */
+  --mint: #D8C3A0;         /* champagne: accents on dark */
   --ink: #16130F;          /* text on light */
   --muted: #6B625A;        /* secondary text on light */
   --on-dark: #F6F0E8;      /* text on dark */
@@ -565,7 +565,7 @@ p { margin: 0 0 1em; }
 .ln-mask { padding-bottom: .16em; margin-bottom: -.16em; }
 .eyebrow { color: var(--emerald); }
 .hero h1 em, .page-hero h1 em { color: var(--mint); }
-.btn-emerald { box-shadow: 0 14px 30px -14px rgba(194, 91, 58, .7); }
+.btn-emerald { box-shadow: 0 14px 30px -14px rgba(134, 105, 74, .55); }
 
 /* statement that lights up word by word */
 .statement-band { padding: var(--section) 0 calc(var(--section) * .7); background: var(--paper); }
