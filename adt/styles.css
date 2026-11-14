@@ -25,6 +25,12 @@
   --radius: 6px;
 }
 
+/* Page tones (14 Nov 2026, Tony's idea): one soft colour per service; champagne stays on shared pages.
+   Classes work on <body> (whole page) and on single elements (home service panels). */
+.tone-property { --emerald: #5A6B52; --emerald-deep: #475540; --leaf: #8A9A7E; --mint: #B7C4A8; }
+.tone-building { --emerald: #485D72; --emerald-deep: #384A5C; --leaf: #7D91A6; --mint: #AFC0CF; }
+
+
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -565,7 +571,7 @@ p { margin: 0 0 1em; }
 .ln-mask { padding-bottom: .16em; margin-bottom: -.16em; }
 .eyebrow { color: var(--emerald); }
 .hero h1 em, .page-hero h1 em { color: var(--mint); }
-.btn-emerald { box-shadow: 0 14px 30px -14px rgba(134, 105, 74, .55); }
+.btn-emerald { box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--emerald) 55%, transparent); }
 
 /* statement that lights up word by word */
 .statement-band { padding: var(--section) 0 calc(var(--section) * .7); background: var(--paper); }
