@@ -332,7 +332,6 @@ p { margin: 0 0 1em; }
 .page-hero-short { padding-bottom: clamp(56px, 7vw, 90px); }
 .page-hero-short h1 { font-size: clamp(44px, 6vw, 80px); }
 .page-lede { max-width: 34em; margin-top: 30px; font-size: 19px; color: var(--on-dark-muted); }
-.page-hero-mark { position: absolute; right: -4%; bottom: -18%; width: min(46vw, 560px); opacity: .09; pointer-events: none; }
 
 /* About */
 .about { padding: var(--section) 0; }
@@ -394,7 +393,7 @@ p { margin: 0 0 1em; }
 .form input:focus, .form textarea:focus { outline: none; border-color: var(--mint); background: rgba(255, 255, 255, .07); }
 .form textarea { resize: vertical; }
 .form .btn { justify-self: start; border: 0; cursor: pointer; margin-top: 6px; }
-.hp { position: absolute; left: -9999px; }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* honeypot: off screen without a negative left, which broke right-to-left pages */
 .form-light { background: #fff; border-color: var(--line); box-shadow: 0 30px 60px -45px rgba(12, 12, 12, .4); }
 .form-light label { color: var(--ink); }
 .form-light .req { color: var(--emerald); }
@@ -455,7 +454,7 @@ p { margin: 0 0 1em; }
   .post-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  .page-hero-mark { width: 70vw; right: -18%; bottom: -14%; }
+
   .form-row { grid-template-columns: 1fr; }
   .includes, .stats, .post-grid, .post-grid-2 { grid-template-columns: 1fr; }
   .bubble { max-width: 92%; font-size: 16px; }
@@ -599,11 +598,6 @@ p { margin: 0 0 1em; }
 @media (max-width: 760px) { .duo { flex-direction: column; height: auto; } .duo-panel { height: 72vh; flex: none; } }
 
 /* languages band */
-.mq { overflow: hidden; padding: clamp(40px, 6vw, 80px) 0; background: var(--paper); }
-.mq-track { display: flex; align-items: center; gap: clamp(28px, 4vw, 56px); width: max-content; }
-.mq-track span { font: 350 clamp(56px, 9vw, 140px)/1 var(--display); font-style: italic; color: transparent; -webkit-text-stroke: 1.2px var(--ink); white-space: nowrap; }
-.mq-track span:nth-of-type(3n+2) { color: var(--ink); -webkit-text-stroke: 0; font-style: normal; }
-.mq-track i { width: 18px; height: 18px; border-radius: 50%; background: var(--emerald); flex: none; }
 
 /* reasons: sticky photo, list scrolls */
 .reasons { padding: var(--section) 0; background: var(--mist); }
@@ -689,3 +683,44 @@ p { margin: 0 0 1em; }
 .footer-base { padding-right: 84px; }
 .form .lt { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .form .lt .req { font-size: 12px; }
+
+/* ---------- Languages (14 Nov 2026): EN at /, Greek at /el/, Hebrew (right to left) at /he/ ---------- */
+.nav .lang-switch { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--line-dark); border-radius: 999px; }
+.nav .lang-switch a { font: 600 12px/1 var(--body) !important; letter-spacing: .06em; padding: 7px 10px; border-radius: 999px; opacity: .7; text-decoration: none !important; }
+.nav .lang-switch a:hover { opacity: 1; }
+.nav .lang-switch a[aria-current] { opacity: 1; background: var(--on-dark); color: var(--forest-ink); }
+@media (max-width: 1100px) { .nav .lang-switch a { font-size: 15px !important; padding: 10px 16px; } }
+
+/* Fraunces, Figtree and Kreon have no Greek or Hebrew letters */
+:root:lang(el) { --display: "Noto Serif Display", Georgia, serif; --body: "Noto Sans", system-ui, sans-serif; --label: "Noto Sans", system-ui, sans-serif; }
+:root:lang(he) { --display: "Frank Ruhl Libre", Georgia, serif; --body: "Heebo", system-ui, sans-serif; --label: "Heebo", system-ui, sans-serif; }
+:lang(el) .eyebrow, :lang(el) .footer-h { letter-spacing: .08em; }
+:lang(he) .eyebrow, :lang(he) .footer-h, :lang(he) .brand-tag { letter-spacing: .02em; }
+/* Hebrew has no italics: the accent colour carries the emphasis */
+:lang(he) em { font-style: normal; }
+:lang(he) h1 em, :lang(he) h2 em { font-weight: 400; }
+
+/* Right to left */
+[dir="rtl"] .link-arrow::after { content: "←"; }
+[dir="rtl"] .link-arrow:hover::after { transform: translateX(-4px); }
+[dir="rtl"] .duo-link::after { content: " ←"; }
+[dir="rtl"] .hero-still { right: auto; left: 8%; }
+[dir="rtl"] .reasons-count { left: auto; right: 24px; }
+[dir="rtl"] .ride-card::before, [dir="rtl"] .start-line span { transform-origin: right; }
+[dir="rtl"] .ride-n { right: auto; left: 30px; }
+[dir="rtl"] .start-steps .dot { left: auto; right: 0; }
+[dir="rtl"] .wa-float { right: auto; left: 22px; }
+[dir="rtl"] .footer-base { padding-right: 0; padding-left: 84px; }
+[dir="rtl"] .skip { left: auto; right: -999px; }
+[dir="rtl"] .skip:focus { right: 8px; }
+[dir="rtl"] .hero-shade {
+  background:
+    linear-gradient(270deg, rgba(18, 13, 10, .97) 0%, rgba(18, 13, 10, .92) 38%, rgba(18, 13, 10, .45) 60%, rgba(18, 13, 10, 0) 76%),
+    linear-gradient(180deg, rgba(18, 13, 10, .55) 0%, rgba(18, 13, 10, 0) 22%, rgba(18, 13, 10, 0) 80%, rgba(18, 13, 10, .6) 100%);
+}
+[dir="rtl"] .hero-glow {
+  background:
+    radial-gradient(60% 55% at 28% 48%, rgba(150, 150, 150, .22), transparent 70%),
+    radial-gradient(40% 40% at 90% 100%, rgba(0, 0, 0, .08), transparent 70%);
+}
+@media (max-width: 1100px) { :lang(el) .nav a:not(.btn) { font-size: 25px; } }

@@ -88,7 +88,6 @@
   gsap.set(ups, { opacity: 0 });
 
   // the faint logo watermark behind some page titles: fade in to its own (low) opacity, never to full
-  gsap.from('.page-hero-mark', { opacity: 0, y: 40, duration: 1.6, ease: 'power3.out', delay: 0.3 });
 
   // ---------- "zero conflict of interest": an emerald underline sweeps in ----------
   document.querySelectorAll('.why-body strong').forEach(el => {
@@ -321,16 +320,6 @@
     card.addEventListener('pointerleave', () => { rx(0); ry(0); card.style.setProperty('--mx', '-400px'); });
   });
 
-  // ---------- Yonder: the capabilities band runs, faster while you scroll ----------
-  const track = document.querySelector('.mq-track');
-  if (track) {
-    const loop = gsap.to(track, { xPercent: -50, repeat: -1, duration: 30, ease: 'none' });
-    ScrollTrigger.create({ trigger: track, start: 'top bottom', end: 'bottom top', onUpdate: self => {
-      gsap.to(loop, { timeScale: 1 + Math.min(5, Math.abs(self.getVelocity()) / 300), duration: 0.25, overwrite: true });
-      gsap.to(loop, { timeScale: 1, duration: 1, delay: 0.3 });
-    } });
-  }
-
   // ---------- Yonder: one message, five languages ----------
   const demo = document.querySelector('.lang-demo');
   if (demo) {
@@ -392,8 +381,10 @@
   if (ride) gsap.matchMedia().add('(min-width: 981px)', () => {
     const trackEl = ride.querySelector('.ride-track');
     const dist = () => Math.max(0, trackEl.scrollWidth - innerWidth);
-    const tw = gsap.to(trackEl, { x: () => -dist(), ease: 'none',
-      scrollTrigger: { trigger: ride, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true } });
+    const rtl = document.documentElement.dir === 'rtl'; // Hebrew: the cards run the other way
+    // Pins when the section sits in the middle of the screen (Davide 14 Nov: not too high, not too low).
+    const tw = gsap.to(trackEl, { x: () => (rtl ? 1 : -1) * dist(), ease: 'none',
+      scrollTrigger: { trigger: ride, start: () => ride.offsetHeight < innerHeight ? 'center center' : 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true } });
     gsap.from(ride.querySelectorAll('.ride-card'), { y: 80, opacity: 0, stagger: 0.08, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: ride, start: 'top 70%', once: true } });
     return () => tw.scrollTrigger && tw.scrollTrigger.kill();
   });

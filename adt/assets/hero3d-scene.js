@@ -299,7 +299,8 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
   const tgtZ = track([[0, -0.3], [2.9, -0.1], [4.7, 0.15], [6.2, 0.05], [7.6, 0], [DUR, 0]]);
   // where the logo lands on screen at the end (px offset of the view): site = right side, brand = centred and raised for the wordmark
   // site = logo lands right of centre (website hero); center = centred, no wordmark (phone crop); brand = centred, raised for the wordmark
-  const shiftX = () => (layout === "site" ? -W * 0.2 : 0);
+  const rtl = typeof document !== "undefined" && document.documentElement.dir === "rtl"; // Hebrew: text on the right, logo on the left
+  const shiftX = () => (layout === "site" ? (rtl ? 1 : -1) * W * 0.2 : 0);
   const shiftY = () => (layout === "brand" ? H * 0.115 : 0);
 
   // ix = { mx, my } mouse in -1..1 and scroll 0..1 (how far the hero has scrolled away)
