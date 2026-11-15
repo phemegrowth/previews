@@ -363,7 +363,8 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
       -bx * Math.sin(ang) + bz * Math.cos(ang) + my * 0.25
     );
     camera.up.set(0, 1, 0); // the end view keeps a slight tilt, so up never lines up with the view
-    const fit = Math.max(1.12, 1.95 / camera.aspect);
+    // narrow/square boxes (phones) need more room: back off at most 1.25x (fog darkens anything further), the lens widens for the rest
+    const fit = Math.min(1.25, Math.max(1.12, 1.95 / Math.max(camera.aspect, 1.6)));
     camera.position.set(tgtX(t) + (camera.position.x - tgtX(t)) * fit, camera.position.y * fit, tgtZ(t) + (camera.position.z - tgtZ(t)) * fit);
     camera.lookAt(tgtX(t), 0, tgtZ(t));
     const f = smooth(5.8, 7.8, t);
@@ -379,8 +380,14 @@ export function createScene({ canvas, width, height, duration, layout, pixelRati
     composer.setSize(W, H);
     bloom.resolution.set(W, H);
     camera.aspect = W / H;
+    fitLens();
+  }
+  function fitLens() {
+    const need = Math.max(1.12, 1.95 / Math.max(camera.aspect, 1.6));
+    camera.fov = (2 * Math.atan(Math.tan((32 / 2) * Math.PI / 180) * need / Math.min(1.25, need)) * 180) / Math.PI;
     camera.updateProjectionMatrix();
   }
+  fitLens();
 
   return { renderAt, setSize };
 }
