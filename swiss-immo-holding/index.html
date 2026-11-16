@@ -34,8 +34,56 @@ nav .btn{padding:11px 20px}
 
 /* hero */
 .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
-.hero .bg{position:absolute;inset:0;background:url(assets/DSC0921-1.jpg) center/cover;animation:kb 24s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.hero h1 .w>span{display:inline-block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.loaded .hero h1 .w>span{transform:none}
+.hero .eyebrow,.hero p,.hero .ctas{opacity:0;transform:translateY(16px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.loaded .hero .eyebrow{opacity:1;transform:none;transition-delay:.2s}
+.loaded .hero p{opacity:1;transform:none;transition-delay:1s}
+.loaded .hero .ctas{opacity:1;transform:none;transition-delay:1.2s}
+.gline{display:block;height:1px;width:0;background:var(--gold);margin-top:14px;transition:width 1.6s cubic-bezier(.2,.7,.2,1) .4s}
+.loaded .gline{width:120px}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+#pre img{width:150px;opacity:0;animation:fade .8s .1s forwards}
+#pre i{display:block;width:160px;height:1px;background:var(--line);position:relative;overflow:hidden}
+#pre i:after{content:"";position:absolute;inset:0;background:var(--gold);transform:translateX(-100%);animation:bar 1.1s .2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes bar{to{transform:none}}
+.loaded #pre{transform:translateY(-100%)}
+
+/* marquee */
+.marq{overflow:hidden;border-bottom:1px solid var(--line);padding:22px 0;white-space:nowrap}
+.marq div{display:inline-block;animation:marq 38s linear infinite;font-family:"Cormorant Garamond",serif;font-size:30px;color:#6d6760}
+.marq b{color:var(--gold);font-weight:400;margin:0 26px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* new project */
+.launch{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);background:var(--bg2)}
+.launch .pic{position:relative;min-height:460px;overflow:hidden}
+.launch .pic img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;filter:saturate(.8)}
+.launch .pic .tag{background:var(--gold);color:var(--bg)}
+.launch .txt{padding:48px}
+.launch h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:42px;line-height:1.05;margin:10px 0 14px}
+.launch .txt>p{color:var(--mute);margin-bottom:26px}
+.units{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 10px}
+.unit{border:1px solid var(--line);padding:12px 10px;font-size:12px;text-align:center;transition:.5s}
+.unit b{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:20px}
+.unit.sold{border-color:var(--red);background:rgba(200,16,46,.12)}
+.unit.sold:after{content:"Réservée";display:block;color:#ff6a7f;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+.unit.free:after{content:"Disponible";display:block;color:var(--mute);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+.bar{height:2px;background:var(--line);margin:18px 0 8px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
+.barlbl{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-bottom:28px}
+
+/* cursor */
+#cur{position:fixed;left:0;top:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(201,169,110,.10),transparent 65%);transition:opacity .4s;opacity:0}
+@media (pointer:fine){#cur{opacity:1}}
+.card{transform-style:preserve-3d;will-change:transform}
+.card.unlock .lock svg{animation:unl .5s forwards}
+@keyframes unl{50%{transform:translateY(-6px) rotate(-12deg)}100%{transform:translateY(-6px) rotate(-12deg);opacity:.2}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 .w>span{transform:none}.hero .eyebrow,.hero p,.hero .ctas{opacity:1;transform:none}#pre{display:none}}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,12,11,.55) 0%,rgba(13,12,11,.15) 40%,rgba(13,12,11,.92) 100%)}
 .hero .wrap{position:relative;z-index:2;padding-bottom:12vh;width:100%}
 .hero h1{font-size:clamp(44px,7vw,96px);line-height:1.02;max-width:900px;margin:18px 0 26px}
@@ -146,6 +194,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
   .grid,.team{grid-template-columns:1fr}
   .qbox{grid-template-columns:1fr;gap:40px}
   .steps{grid-template-columns:1fr}
+  .launch{grid-template-columns:1fr}.launch .pic{min-height:280px}.launch .txt{padding:28px}
+  .units{grid-template-columns:repeat(2,1fr)}
+  .marq div{font-size:22px}
   section{padding:84px 0}
   .qcard,.mbox{padding:28px}
   .opts{grid-template-columns:1fr}
@@ -159,6 +210,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 </style>
 </head>
 <body>
+<div id="pre"><img src="assets/SIH_LOGO_RVB-e1507893094932.png" alt=""><i></i></div>
+<div id="cur"></div>
 
 <nav id="nav"><div class="wrap">
   <a href="#"><img src="assets/SIH_LOGO_RVB-e1507893094932.png" alt="Swiss Immo Holding" width="160"></a>
@@ -170,10 +223,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 </div></nav>
 
 <header class="hero">
-  <div class="bg"></div>
+  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
   <div class="wrap">
-    <div class="eyebrow">Immobilier hors-marché · Suisse romande</div>
-    <h1 class="serif">Les meilleures affaires ne sont <em>jamais publiées.</em></h1>
+    <div class="eyebrow">Immobilier hors-marché · Suisse romande<span class="gline"></span></div>
+    <h1 class="serif" id="h1">Les meilleures affaires ne sont <em>jamais publiées.</em></h1>
     <p>Immeubles de rendement, propriétés d'exception et affaires commerciales, réservés à un cercle d'investisseurs qualifiés.</p>
     <div class="ctas">
       <a class="btn red" href="#biens">Voir les biens hors-marché</a>
@@ -189,6 +242,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
   <div><strong>NDA</strong><span>Dossiers sous confidentialité</span></div>
   <div><strong>Nyon</strong><span>Réseau dans toute la Suisse</span></div>
 </div></div>
+<div class="marq" aria-hidden="true"><div>Immeubles de rendement<b>✦</b>Propriétés d'exception<b>✦</b>Affaires commerciales<b>✦</b>Résidences sénior<b>✦</b>Programmes neufs<b>✦</b>Immeubles de rendement<b>✦</b>Propriétés d'exception<b>✦</b>Affaires commerciales<b>✦</b>Résidences sénior<b>✦</b>Programmes neufs<b>✦</b></div></div>
 
 <section id="biens"><div class="wrap">
   <div class="head reveal">
@@ -196,6 +250,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
     <p>Chaque dossier complet (adresse, photos, état locatif) est remis uniquement aux investisseurs vérifiés, sur demande.</p>
   </div>
   <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="programme" style="padding-top:0"><div class="wrap">
+  <div class="head reveal"><div><div class="eyebrow">Programme neuf · Lancement</div><h2 class="serif">Chaque projet a sa propre page.</h2></div>
+  <p>Une page dédiée, une vidéo et une campagne ciblée dès le premier jour de commercialisation. Toutes les demandes arrivent directement chez nous.</p></div>
+  <div class="launch reveal">
+    <div class="pic"><img id="lpic" src="assets/card1.jpg" alt=""><span class="tag">Nouveau</span></div>
+    <div class="txt">
+      <div class="type eyebrow">4 villas contemporaines · La Côte</div>
+      <h3>Les Terrasses du Lac</h3>
+      <p>Villas de 5,5 pièces avec jardin, Minergie, géothermie et panneaux solaires. Livraison été 2028.</p>
+      <div class="units" id="units"><div class="unit" data-s="1"><b>Villa A</b>CHF 2,9 M</div><div class="unit" data-s="1"><b>Villa B</b>CHF 2,9 M</div><div class="unit" data-s="0"><b>Villa C</b>CHF 3,1 M</div><div class="unit" data-s="0"><b>Villa D</b>CHF 3,2 M</div></div>
+      <div class="bar"><i id="barfill"></i></div>
+      <div class="barlbl"><span>50 % réservé</span><span>en 15 jours</span></div>
+      <button class="btn red" data-open="Les Terrasses du Lac" data-ref="Programme neuf">Recevoir la plaquette</button>
+    </div>
+  </div>
 </div></section>
 
 <section class="quiz"><div class="wrap qbox">
@@ -224,8 +295,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
 <section class="sell" id="vendre"><div class="bg"></div><div class="wrap reveal">
   <div class="eyebrow">Propriétaires</div>
-  <h2 class="serif">Vendez sans que personne ne le sache.</h2>
-  <p>Pas d'annonce, pas de visites inutiles, pas de prix affiché sur internet. Votre bien est présenté uniquement à des acheteurs vérifiés de notre réseau.</p>
+  <h2 class="serif">Nous avons un acheteur. <em style="color:var(--gold)">Sans commission</em> pour vous.</h2>
+  <p>Pas d'annonce, pas de visites inutiles, pas de prix affiché sur internet. Votre bien est racheté directement ou présenté uniquement à des investisseurs vérifiés de notre réseau.</p>
   <div class="steps">
     <div><b>1. Estimation</b>Par un expert certifié CEI, sans engagement.</div>
     <div><b>2. Présentation ciblée</b>À une sélection d'investisseurs, sous NDA.</div>
@@ -312,6 +383,31 @@ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
   if(sell){document.getElementById('qn').textContent='12';document.getElementById('qt').textContent="investisseurs qualifiés de notre réseau recherchent actuellement ce type de bien. Votre vente reste totalement confidentielle.";r.textContent='Estimation confidentielle';r.dataset.open='Estimation confidentielle';r.dataset.sell='1'}
   else{document.getElementById('qn').textContent=String(2+Math.floor(Math.random()*3))}}
 });
+
+// headline words
+const h1=document.getElementById('h1');let wi=0;
+h1.innerHTML=h1.innerHTML.replace(/(<em>|<\/em>)|([^\s<]+)/g,(m,tag,word)=>tag?tag:`<span class="w"><span style="transition-delay:${.35+(wi++)*.09}s">${word}</span></span>`);
+const done=()=>document.body.classList.add('loaded');
+addEventListener('load',()=>setTimeout(done,900));setTimeout(done,3500);
+
+// card tilt + unlock
+if(matchMedia('(pointer:fine)').matches){
+ const cur=document.getElementById('cur');addEventListener('mousemove',e=>{cur.style.transform=`translate(${e.clientX}px,${e.clientY}px)`});
+ document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-4px)`});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+ });
+}
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>c.classList.add('unlock'),true));
+
+// launch: units fill + parallax
+const units=document.getElementById('units');
+new IntersectionObserver((es,o)=>es.forEach(x=>{if(x.isIntersecting){o.disconnect();
+ [...units.children].forEach((u,i)=>setTimeout(()=>u.classList.add(u.dataset.s==='1'?'sold':'free'),400+i*450));
+ setTimeout(()=>document.getElementById('barfill').style.width='50%',300)}}),{threshold:.4}).observe(units);
+const lp=document.getElementById('lpic'),sb=document.querySelector('.sell .bg');
+addEventListener('scroll',()=>{const r=lp.getBoundingClientRect();lp.style.transform=`translateY(${(r.top-innerHeight/2)*-.06}px)`;
+ const s=sb.getBoundingClientRect();sb.style.transform=`translateY(${(s.top)*-.05}px) scale(1.15)`},{passive:true});
 
 // nav + reveal
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
