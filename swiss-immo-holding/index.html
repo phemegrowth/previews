@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swiss Immo Holding – Biens immobiliers hors-marché en Suisse</title>
+<meta name="description" content="Immeubles de rendement, propriétés d'exception et affaires commerciales hors-marché en Suisse romande. Dossiers confidentiels, estimations par experts CEI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0c0b;--bg2:#151412;--line:#2a2724;--ivory:#f3efe8;--mute:#a39d94;--red:#c8102e;--gold:#c9a96e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-variant-numeric:lining-nums;background:var(--bg);color:var(--ivory);font:300 16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border:1px solid var(--ivory);font-size:13px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--ivory);transition:.3s;font-family:inherit}
+.btn:hover{background:var(--ivory);color:var(--bg)}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.red:hover{background:#a50d26;border-color:#a50d26;color:var(--ivory)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:.4s;border-bottom:1px solid transparent}
+nav.solid{background:rgba(13,12,11,.92);backdrop-filter:blur(10px);border-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+nav .links{display:flex;gap:34px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;align-items:center}
+nav .links a:not(.btn){opacity:.8}nav .links a:hover{opacity:1}
+nav .btn{padding:11px 20px}
+.lang{color:var(--mute)}.lang b{color:var(--ivory);font-weight:500}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url(assets/DSC0921-1.jpg) center/cover;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,12,11,.55) 0%,rgba(13,12,11,.15) 40%,rgba(13,12,11,.92) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:12vh;width:100%}
+.hero h1{font-size:clamp(44px,7vw,96px);line-height:1.02;max-width:900px;margin:18px 0 26px}
+.hero h1 em{color:var(--gold)}
+.hero p{max-width:540px;color:#d8d2c8;font-size:18px;margin-bottom:38px}
+.hero .ctas{display:flex;gap:16px;flex-wrap:wrap}
+.scroll{position:absolute;right:24px;bottom:40px;z-index:2;font-size:11px;letter-spacing:.3em;writing-mode:vertical-rl;color:var(--mute)}
+
+/* proof */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.proof div div{padding:34px 22px;border-left:1px solid var(--line)}
+.proof div div:first-child{border-left:0}
+.proof strong{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:34px;line-height:1.1;margin-bottom:6px}
+.proof span{font-size:13px;color:var(--mute)}
+
+section{padding:120px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.head h2{font-size:clamp(36px,4.6vw,60px);line-height:1.05;margin-top:14px;max-width:640px}
+.head p{max-width:400px;color:var(--mute)}
+
+/* listings */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;background:var(--bg2);border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:.4s}
+.card:hover{border-color:#4a4540;transform:translateY(-4px)}
+.card .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;filter:blur(14px) saturate(.6) brightness(.75);transform:scale(1.15);transition:.6s}
+.card:hover .ph img{filter:blur(10px) saturate(.75) brightness(.8)}
+.lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.lock svg{width:30px;height:30px;stroke:var(--ivory);fill:none;stroke-width:1.3}
+.tag{position:absolute;top:16px;left:16px;background:var(--red);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;font-weight:500}
+.ref{position:absolute;top:16px;right:16px;font-size:11px;color:#d8d2c8;letter-spacing:.1em}
+.card .body{padding:24px 24px 26px}
+.card .type{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.card h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:28px;line-height:1.15;margin:8px 0 18px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;border-top:1px solid var(--line);padding-top:16px;font-size:14px}
+.facts small{display:block;font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.card .go{margin-top:22px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:flex;justify-content:space-between;color:var(--ivory)}
+.card .go i{font-style:normal;transition:.3s}.card:hover .go i{transform:translateX(6px)}
+
+/* quiz */
+.quiz{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qbox{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center}
+.qcard{border:1px solid var(--line);padding:44px;background:var(--bg);min-height:360px;position:relative}
+.qprog{display:flex;gap:6px;margin-bottom:28px}.qprog i{flex:1;height:2px;background:var(--line)}.qprog i.on{background:var(--gold)}
+.qstep{display:none}.qstep.on{display:block;animation:fade .45s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.serif,h1,h2,h3,h4,strong{font-variant-numeric:lining-nums}
+.qstep h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:30px;margin-bottom:22px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{border:1px solid var(--line);padding:18px;cursor:pointer;font-size:15px;transition:.25s;background:none;color:var(--ivory);text-align:left;font-family:inherit}
+.opt:hover{border-color:var(--gold);background:rgba(201,169,110,.06)}
+.result strong{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:400;color:var(--gold);line-height:1}
+.result p{color:var(--mute);margin:12px 0 28px}
+
+/* sellers */
+.sell{position:relative;overflow:hidden}
+.sell .bg{position:absolute;inset:0;background:url(assets/hero.jpg) center/cover;opacity:.18;filter:grayscale(1)}
+.sell .wrap{position:relative;max-width:820px;text-align:center}
+.sell h2{font-size:clamp(36px,5vw,64px);line-height:1.05;margin:16px 0 24px}
+.sell p{color:#d8d2c8;font-size:18px;margin-bottom:40px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left;margin-bottom:46px}
+.steps div{border-top:1px solid var(--gold);padding-top:16px;font-size:14px;color:#d8d2c8}
+.steps b{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:22px;color:var(--ivory);margin-bottom:4px}
+
+/* team */
+.team{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+.person{border:1px solid var(--line);padding:30px;display:flex;gap:20px;align-items:center}
+.mono{width:72px;height:72px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--gold);flex:none}
+.person h4{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:24px}
+.person p{font-size:13px;color:var(--mute)}
+.person a{font-size:14px}
+.badge-box{border:1px solid var(--line);padding:30px;font-size:14px;color:var(--mute)}
+.badge-box b{color:var(--ivory);font-weight:500;display:block;margin-bottom:6px}
+
+footer{border-top:1px solid var(--line);padding:50px 0;font-size:13px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.demo{text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6d6760;padding:14px;border-top:1px solid var(--line)}
+
+/* whatsapp */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 30px rgba(0,0,0,.4);transition:.3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:30px;height:30px;fill:#fff}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,.78);backdrop-filter:blur(6px);padding:20px}
+.modal.on{display:flex;animation:fade .3s}
+.mbox{background:var(--bg);border:1px solid var(--line);max-width:520px;width:100%;padding:44px;position:relative;max-height:92vh;overflow:auto}
+.mbox .x{position:absolute;top:14px;right:18px;font-size:28px;cursor:pointer;color:var(--mute);background:none;border:0}
+.mbox h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:34px;line-height:1.1;margin:10px 0 8px}
+.mbox .sub{color:var(--mute);font-size:14px;margin-bottom:26px}
+.field{margin-bottom:14px}
+.field input,.field select{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--ivory);padding:15px 16px;font:inherit;font-size:15px;outline:none}
+.field input:focus,.field select:focus{border-color:var(--gold)}
+.chk{display:flex;gap:10px;font-size:13px;color:var(--mute);margin:16px 0 24px;align-items:flex-start}
+.chk input{margin-top:4px;accent-color:var(--red)}
+.mbox .btn{width:100%;justify-content:center}
+.ok{display:none;text-align:center;padding:20px 0}
+.ok .tick{width:64px;height:64px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;margin:0 auto 20px;color:var(--gold);font-size:28px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  nav .links a:not(.btn):not(.lang){display:none}
+  .proof .wrap{grid-template-columns:1fr 1fr}
+  .proof div div:nth-child(3){border-left:0}
+  .proof div div{border-top:1px solid var(--line)}
+  .grid,.team{grid-template-columns:1fr}
+  .qbox{grid-template-columns:1fr;gap:40px}
+  .steps{grid-template-columns:1fr}
+  section{padding:84px 0}
+  .qcard,.mbox{padding:28px}
+  .opts{grid-template-columns:1fr}
+  .scroll{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  nav .lang{display:none}
+  .hero .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+  <a href="#"><img src="assets/SIH_LOGO_RVB-e1507893094932.png" alt="Swiss Immo Holding" width="160"></a>
+  <div class="links">
+    <a href="#biens">Biens</a><a href="#vendre">Vendre</a><a href="#equipe">Équipe</a>
+    <span class="lang"><b>FR</b> · EN</span>
+    <a class="btn" href="#biens">Accès privé</a>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="eyebrow">Immobilier hors-marché · Suisse romande</div>
+    <h1 class="serif">Les meilleures affaires ne sont <em>jamais publiées.</em></h1>
+    <p>Immeubles de rendement, propriétés d'exception et affaires commerciales, réservés à un cercle d'investisseurs qualifiés.</p>
+    <div class="ctas">
+      <a class="btn red" href="#biens">Voir les biens hors-marché</a>
+      <a class="btn" href="#vendre">Vendre en toute discrétion</a>
+    </div>
+  </div>
+  <div class="scroll">DÉFILER</div>
+</header>
+
+<div class="proof"><div class="wrap">
+  <div><strong>0</strong><span>annonce publique, jamais</span></div>
+  <div><strong>CEI</strong><span>Estimations par experts certifiés</span></div>
+  <div><strong>NDA</strong><span>Dossiers sous confidentialité</span></div>
+  <div><strong>Nyon</strong><span>Réseau dans toute la Suisse</span></div>
+</div></div>
+
+<section id="biens"><div class="wrap">
+  <div class="head reveal">
+    <div><div class="eyebrow">Sélection actuelle</div><h2 class="serif">Biens disponibles, hors de tout portail.</h2></div>
+    <p>Chaque dossier complet (adresse, photos, état locatif) est remis uniquement aux investisseurs vérifiés, sur demande.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="quiz"><div class="wrap qbox">
+  <div class="reveal">
+    <div class="eyebrow">Recherche sur mesure</div>
+    <h2 class="serif" style="font-size:clamp(36px,4.6vw,58px);line-height:1.05;margin:14px 0 20px">Trois questions. Nous vous disons ce que nous avons.</h2>
+    <p style="color:var(--mute);max-width:420px">Une partie de nos biens n'est même pas sur cette page. Décrivez votre recherche, nous la comparons à notre réseau.</p>
+  </div>
+  <div class="qcard reveal">
+    <div class="qprog"><i class="on"></i><i></i><i></i></div>
+    <div class="qstep on" data-s="0"><h3>Votre objectif ?</h3><div class="opts">
+      <button class="opt" data-v="invest">Investir (rendement)</button><button class="opt" data-v="live">Résidence principale</button>
+      <button class="opt" data-v="business">Affaire commerciale</button><button class="opt" data-v="sell">Je souhaite vendre</button></div></div>
+    <div class="qstep" data-s="1"><h3>Quelle région ?</h3><div class="opts">
+      <button class="opt">Genève</button><button class="opt">Vaud · La Côte</button><button class="opt">Lausanne · Riviera</button><button class="opt">Toute la Suisse</button></div></div>
+    <div class="qstep" data-s="2"><h3>Quel budget ?</h3><div class="opts">
+      <button class="opt">CHF 2 – 5 M</button><button class="opt">CHF 5 – 10 M</button><button class="opt">CHF 10 – 25 M</button><button class="opt">Plus de CHF 25 M</button></div></div>
+    <div class="qstep result" data-s="3">
+      <div class="eyebrow">Résultat</div>
+      <strong id="qn">3</strong>
+      <p id="qt">biens hors-marché correspondent à votre recherche. Les dossiers vous sont remis après un court échange.</p>
+      <button class="btn red" data-open="Recherche personnalisée">Recevoir les dossiers</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="sell" id="vendre"><div class="bg"></div><div class="wrap reveal">
+  <div class="eyebrow">Propriétaires</div>
+  <h2 class="serif">Vendez sans que personne ne le sache.</h2>
+  <p>Pas d'annonce, pas de visites inutiles, pas de prix affiché sur internet. Votre bien est présenté uniquement à des acheteurs vérifiés de notre réseau.</p>
+  <div class="steps">
+    <div><b>1. Estimation</b>Par un expert certifié CEI, sans engagement.</div>
+    <div><b>2. Présentation ciblée</b>À une sélection d'investisseurs, sous NDA.</div>
+    <div><b>3. Transaction</b>Suivie jusqu'à la signature chez le notaire.</div>
+  </div>
+  <button class="btn red" data-open="Estimation confidentielle" data-sell="1">Demander une estimation confidentielle</button>
+</div></section>
+
+<section id="equipe"><div class="wrap">
+  <div class="head reveal"><div><div class="eyebrow">Votre interlocuteur</div><h2 class="serif">Un contact direct. Aucun intermédiaire.</h2></div></div>
+  <div class="team reveal">
+    <div class="person"><div class="mono">LN</div><div><h4>Luca Nani</h4><p>Investissement &amp; immeubles de rendement</p><a href="tel:+41792020091">+41 79 202 00 91</a></div></div>
+    <div class="person"><div class="mono">LC</div><div><h4>Lurdes Cabral</h4><p>Propriétés d'exception &amp; clientèle privée</p><a href="tel:+41791281706">+41 79 128 17 06</a></div></div>
+    <div class="badge-box"><b>Estimations indépendantes</b>En partenariat avec assei.ch, membre de la CEI – Chambre suisse des experts en estimations immobilières.</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><img src="assets/SIH_LOGO_RVB-e1507893094932.png" alt="Swiss Immo Holding" width="130" style="margin-bottom:14px">Av. Alfred Cortot 7 F · CH-1260 Nyon</div>
+  <div>+41 22 361 44 08<br>info@swissimmoholding.ch</div>
+  <div>© 2026 Swiss Immo Holding</div>
+</div></footer>
+<div class="demo">Maquette de démonstration · biens et chiffres à titre d'exemple</div>
+
+<a class="wa" href="https://wa.me/41792020091" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg></a>
+
+<div class="modal" id="modal"><div class="mbox">
+  <button class="x" id="mx" aria-label="Fermer">×</button>
+  <div id="mform">
+    <div class="eyebrow" id="mref">Dossier confidentiel</div>
+    <h3 id="mtitle">Demander le dossier</h3>
+    <p class="sub" id="msub">Adresse exacte, photos, état locatif et plans. Remis sous 24 h après vérification.</p>
+    <form id="f">
+      <div class="field"><input required placeholder="Nom et prénom"></div>
+      <div class="field"><input required type="email" placeholder="E-mail"></div>
+      <div class="field"><input required type="tel" placeholder="Téléphone / WhatsApp"></div>
+      <div class="field" id="budget"><select><option>Capacité d'investissement</option><option>CHF 2 – 5 M</option><option>CHF 5 – 10 M</option><option>CHF 10 – 25 M</option><option>Plus de CHF 25 M</option></select></div>
+      <label class="chk"><input type="checkbox" required> J'accepte que les informations reçues restent strictement confidentielles.</label>
+      <button class="btn red" type="submit">Envoyer la demande</button>
+    </form>
+  </div>
+  <div class="ok" id="ok"><div class="tick">✓</div><h3 class="serif" style="font-size:30px">Demande reçue.</h3><p class="sub" style="margin-top:8px">Luca Nani vous contacte personnellement dans les 24 heures.</p></div>
+</div></div>
+
+<script>
+const L=[
+ {ref:"SIH-0241",type:"Immeuble de rendement",t:"Immeuble locatif de 14 lots",reg:"Riviera vaudoise",price:"CHF 8 – 10 M",k:"Rendement brut",v:"4,6 %",img:"card4"},
+ {ref:"SIH-0238",type:"Propriété d'exception",t:"Maison de maître, vue lac",reg:"La Côte",price:"CHF 6 – 7 M",k:"Terrain",v:"4 200 m²",img:"card1"},
+ {ref:"SIH-0236",type:"Immeuble mixte",t:"Commerces et logements",reg:"Genève",price:"CHF 18 – 22 M",k:"Rendement brut",v:"3,8 %",img:"card2"},
+ {ref:"SIH-0233",type:"Résidence sénior",t:"EMS en exploitation",reg:"Fribourg",price:"CHF 12 – 15 M",k:"Bail",v:"20 ans",img:"card6"},
+ {ref:"SIH-0229",type:"Affaire commerciale",t:"Hôtel-restaurant au bord du lac",reg:"Valais",price:"CHF 3 – 4 M",k:"Chambres",v:"18",img:"card5"},
+ {ref:"SIH-0227",type:"Propriété d'exception",t:"Attique avec piscine",reg:"Lausanne",price:"CHF 4 – 5 M",k:"Surface",v:"310 m²",img:"card3"}
+];
+const lock='<svg viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="11" rx="1"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>';
+document.getElementById('grid').innerHTML=L.map((p,i)=>`
+<article class="card reveal" style="transition-delay:${i%3*.08}s" data-open="${p.t}" data-ref="${p.ref}">
+ <div class="ph"><img src="assets/${p.img}.jpg" alt="" loading="lazy"><span class="tag">Hors-marché</span><span class="ref">${p.ref}</span><div class="lock">${lock}Dossier confidentiel</div></div>
+ <div class="body"><div class="type">${p.type}</div><h3>${p.t}</h3>
+ <div class="facts"><div><small>Région</small>${p.reg}</div><div><small>Prix indicatif</small>${p.price}</div><div><small>${p.k}</small>${p.v}</div><div><small>Statut</small>Disponible</div></div>
+ <div class="go"><span>Demander le dossier</span><i>→</i></div></div>
+</article>`).join('');
+
+const m=document.getElementById('modal'),f=document.getElementById('f');
+function openM(title,ref,sell){
+ document.getElementById('mtitle').textContent=title;
+ document.getElementById('mref').textContent=ref?('Réf. '+ref):(sell?'Propriétaires':'Dossier confidentiel');
+ document.getElementById('msub').textContent=sell?"Estimation par un expert CEI, sans engagement et en toute discrétion.":"Adresse exacte, photos, état locatif et plans. Remis sous 24 h après vérification.";
+ document.getElementById('budget').style.display=sell?'none':'';
+ document.getElementById('mform').style.display='';document.getElementById('ok').style.display='none';f.reset();
+ m.classList.add('on');
+}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o)openM(o.dataset.open,o.dataset.ref,o.dataset.sell)});
+document.getElementById('mx').onclick=()=>m.classList.remove('on');
+m.onclick=e=>{if(e.target===m)m.classList.remove('on')};
+f.onsubmit=e=>{e.preventDefault();document.getElementById('mform').style.display='none';document.getElementById('ok').style.display='block'};
+
+// quiz
+let step=0,sell=false;const steps=[...document.querySelectorAll('.qstep')],bars=[...document.querySelectorAll('.qprog i')];
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+ if(step===0)sell=b.dataset.v==='sell';
+ steps[step].classList.remove('on');step++;steps[step].classList.add('on');
+ bars.forEach((x,i)=>x.classList.toggle('on',i<=Math.min(step,2)));
+ if(step===3){const r=document.querySelector('.result .btn');
+  if(sell){document.getElementById('qn').textContent='12';document.getElementById('qt').textContent="investisseurs qualifiés de notre réseau recherchent actuellement ce type de bien. Votre vente reste totalement confidentielle.";r.textContent='Estimation confidentielle';r.dataset.open='Estimation confidentielle';r.dataset.sell='1'}
+  else{document.getElementById('qn').textContent=String(2+Math.floor(Math.random()*3))}}
+});
+
+// nav + reveal
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
