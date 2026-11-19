@@ -22,6 +22,36 @@
   }
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
+  // ---------- enquiry form (Tony 19 Nov) ----------
+  // a link like /contact/?service=offer#enquiry preselects that service
+  const want = new URLSearchParams(location.search).get('service');
+  if (want) document.querySelectorAll('form[name=enquiry] select[name=service]').forEach(sel => {
+    if ([...sel.options].some(o => o.value === want)) sel.value = want;
+  });
+  // at least one way to reach the visitor: a phone number or an email. Capture phase, so it runs before any other submit handler.
+  document.addEventListener('submit', e => {
+    const f = e.target;
+    if (!f.matches || !f.matches('form[name=enquiry]')) return;
+    const phone = f.querySelector('[name=phone]'), email = f.querySelector('[name=email]');
+    const hint = f.querySelector('[data-either-hint]');
+    if (phone.value.trim() || email.value.trim()) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (hint) { hint.textContent = f.dataset.either; hint.classList.add('err'); }
+    phone.focus();
+  }, true);
+
+  // ---------- office map: Google Maps loads only when asked (it sets its own cookies) ----------
+  document.querySelectorAll('.map[data-map-src]').forEach(box => {
+    const open = box.querySelector('.map-open');
+    if (open) open.addEventListener('click', e => {
+      e.preventDefault();
+      const fr = document.createElement('iframe');
+      fr.src = box.dataset.mapSrc; fr.title = box.dataset.mapTitle || 'Map'; fr.loading = 'lazy';
+      fr.referrerPolicy = 'no-referrer-when-downgrade';
+      box.replaceChildren(fr);
+    });
+  });
+
   // ---------- hero film ----------
   // Desktop computers get the live 3D logo (assets/hero3d.js); everyone else the video, played once.
   // With reduced motion the poster (the finished logo) stays as a still.
